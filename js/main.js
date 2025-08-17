@@ -2,10 +2,8 @@ const galeria = document.getElementById("galeria");
 const detalhesDiv = document.getElementById("detalhes");
 const favoritosDiv = document.getElementById("favoritos");
 
-// URL da API pública
 const apiUrl = "https://api.thedogapi.com/v1/images/search?limit=10";
 
-// --- INDEX.HTML: Carregar imagens ---
 if (galeria) {
   fetch(apiUrl)
     .then(res => res.json())
@@ -23,7 +21,6 @@ if (galeria) {
     });
 }
 
-// --- DETALHES.HTML: Mostrar detalhes da imagem ---
 if (detalhesDiv) {
   const dog = JSON.parse(localStorage.getItem("detalheDog"));
   if (dog) {
@@ -42,7 +39,6 @@ if (detalhesDiv) {
   }
 }
 
-// --- FAVORITOS.HTML: Mostrar favoritos ---
 if (favoritosDiv) {
   let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
   favoritos.forEach(dog => {
